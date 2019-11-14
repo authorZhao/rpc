@@ -14,9 +14,9 @@
 		<dubbo:protocol port="20888" name="dubbo">
 		</dubbo:protocol>
 		<!-- 4.配置实现类的类名 -->
-		<bean class="com.tedu.dubboProvider.CartServiceImpl" id="cartService">
+		<bean class="com.git.dubboProvider.CartServiceImpl" id="cartService">
 		</bean>
 		<!-- 5.配置接口名,开放服务 -->
-	<dubbo:service interface="com.tedu.service.CartService" ref="cartService">
+	<dubbo:service interface="com.git.service.CartService" ref="cartService">
 	</dubbo:service>
 	</beans>

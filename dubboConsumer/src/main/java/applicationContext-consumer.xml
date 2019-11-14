@@ -10,6 +10,6 @@
 <!-- 2,zookeeper -->
 <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
 <!-- 3,配置那些接口由dubbo来执行 -->
-<dubbo:reference interface="com.tedu.service.CartService" id="cartService"></dubbo:reference>
+<dubbo:reference interface="com.git.service.CartService" id="cartService"></dubbo:reference>
 
 	</beans>

@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.tedu</groupId>
+	<groupId>com.git</groupId>
 	<artifactId>dubboProvider</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -22,7 +22,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.tedu</groupId>
+			<groupId>com.git</groupId>
 			<artifactId>dubboInterface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
@@ -45,4 +45,52 @@
 		</dependency>-->
 
 	</dependencies>
+
+	<build>
+		<resources>
+			<!-- mapper.xml文件在java目录下 -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<!-- mapper.xml文件在resources目录下-->
+			<!--<resource>
+			<directory>src/main/resources</directory>
+		</resource>-->
+		</resources>
+
+		<!--<plugins>
+			&lt;!&ndash;
+            此plugin可以用
+            利用此plugin，把源代码中的xml文件，打包到相应位置，
+            这里主要是为了打包Mybatis的mapper.xml文件
+            &ndash;&gt;
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>copy-xmls</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/src/main/java</directory>
+									<includes>
+										<include>**/*.xml</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>-->
+	</build>
 </project>

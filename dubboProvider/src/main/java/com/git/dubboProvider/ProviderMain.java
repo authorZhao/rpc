@@ -1,4 +1,4 @@
-package com.tedu.dubboProvider;
+package com.git.dubboProvider;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,7 +9,7 @@ public class ProviderMain {
 		//spring框架
 		ClassPathXmlApplicationContext context=new
 				ClassPathXmlApplicationContext("applicationContext-provider.xml");
-		System.out.println("start provider 1");
+		System.out.println("服务启动");
 		context.start();
 		while(true)
 		{}

@@ -1,4 +1,4 @@
-package com.tedu.dubboProvider;
+package com.git.dubboProvider;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

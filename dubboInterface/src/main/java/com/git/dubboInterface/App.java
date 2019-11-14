@@ -1,4 +1,4 @@
-package com.tedu.dubboProvider;
+package com.git.dubboInterface;
 
 /**
  * Hello world!

@@ -2,7 +2,7 @@ package com.tedu.dubboConsumer;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.tedu.service.CartService;
+import com.git.service.CartService;
 
 /**
  * Hello world!
