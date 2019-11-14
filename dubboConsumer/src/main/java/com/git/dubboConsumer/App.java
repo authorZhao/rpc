@@ -1,4 +1,4 @@
-package com.tedu.dubboConsumer;
+package com.git.dubboConsumer;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
