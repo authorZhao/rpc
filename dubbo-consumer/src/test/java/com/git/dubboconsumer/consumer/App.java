@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App {
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("resources/applicationContext-consumer.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext-consumer.xml");
 
 		// 从spring容器中取对象
 		CartService cartService = (CartService) context.getBean("cartService");
