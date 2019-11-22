@@ -1,7 +1,9 @@
 package com.git.dubboprovider.service.impl;
 
+import com.git.dubboprovider.util.AnnotationUtil;
 import com.git.inter.RpcInvoker;
 import com.git.model.ApiResult;
+import org.apache.dubbo.config.annotation.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,6 +12,11 @@ import java.util.Map;
 
 public class RpcInvokerImpl implements RpcInvoker {
 
+    /**
+     * 反射接收 类名、方法名、参数
+     * @param apiResult
+     * @return
+     */
     @Override
     public ApiResult invoke(ApiResult apiResult) {
         Map<String, Object> map = apiResult.getMap();

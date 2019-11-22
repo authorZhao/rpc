@@ -2,16 +2,27 @@ package com.git.dubboprovider.service.impl;
 
 
 
+import com.git.dubboprovider.util.AnnotationUtil;
 import com.git.inter.UserService;
 import com.git.model.Role;
 import com.git.model.User;
+import org.apache.dubbo.config.annotation.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+@Service
 public class UserServiceImpl implements UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+
 
     @Override
     public User getUserRoleByUser(User user) {
+        Service annotation = AnnotationUtil.getAnnotation(this, Service.class);
+        logger.info("当前调用服务实现类为：{},版本号为：{}，分组为：{}",this.getClass().getName(),annotation.version(),annotation.group());
         if(user.getId()==null)throw new RuntimeException("用户id不可为空");
         System.out.println("正在查询数据库");
 
