@@ -22,7 +22,7 @@ public class Test1 {
             Class<?> aClass = iterator.next().getClass();
             System.out.println(aClass.getName());
         }
-
+        //测试合并
     }
 
 
