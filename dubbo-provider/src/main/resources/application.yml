@@ -9,3 +9,6 @@ dubbo:
     name: provider-of-cart
   #scan:
     #base-packages: com.git.dubboprovider.service
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
