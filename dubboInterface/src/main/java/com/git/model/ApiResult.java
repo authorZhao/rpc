@@ -26,6 +26,9 @@ public class ApiResult implements Serializable {
      */
     private Map<String,Object> map;
 
+    public ApiResult(){
+    }
+
 
     public ApiResult(Integer code, String msg, Object obj){
         super();

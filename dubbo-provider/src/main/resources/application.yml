@@ -1,3 +1,5 @@
+server:
+  port: 9999
 
 dubbo:
   protocol:
@@ -12,3 +14,24 @@ dubbo:
 spring:
   activemq:
     broker-url: tcp://localhost:61616
+    #user: admin
+    #password: admin
+    pool:
+      enabled: true
+      max-sessions-per-connection: 500
+      block-if-full-timeout: 30000
+    packages:
+      trust-all: true   # 如果使用ObjectMessage传输对象，必须要加上这个信任包，否则会报ClassNotFound异常
+  jms:
+    pub-sub-domain: true  # 启动主题消息
+
+  #spring.activemq.broker-url=tcp://127.0.0.1:61616
+  #spring.activemq.in-memory=false
+  #true表示使用连接池
+  #spring.activemq.pool.enabled=true
+  #连接池最大连接数
+  #spring.activemq.pool.max-connections=5
+  #空闲的连接过期时间，默认为30秒
+  #spring.activemq.pool.idle-timeout=30000
+  #强制的连接过期时间，与idleTimeout的区别在于：idleTimeout是在连接空闲一段时间失效，而expiryTimeout不管当前连接的情况，只要达到指定时间就失效。默认为0，never
+  #spring.activemq.pool.expiry-timeout=0

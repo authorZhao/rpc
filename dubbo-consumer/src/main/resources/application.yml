@@ -6,3 +6,14 @@ dubbo:
     address: zookeeper://127.0.0.1:2181
   application:
     name: consumer-of-cart
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+    #user: admin
+    #password: admin
+    pool:
+      enabled: true
+    packages:
+      trust-all: true   # 如果使用ObjectMessage传输对象，必须要加上这个信任包，否则会报ClassNotFound异常
+  jms:
+    pub-sub-domain: true  # 启动主题消息

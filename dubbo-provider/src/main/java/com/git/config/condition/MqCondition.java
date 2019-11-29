@@ -11,7 +11,7 @@ public class MqCondition implements Condition {
     String url;
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        if(url==null)return false;
+        //if(url==null)return false;
         return true;
     }
 }
