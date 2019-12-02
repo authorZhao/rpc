@@ -12,20 +12,45 @@
 			name-generator="com.git.config.beanname.MyBeanName"
 	/>
 	<dubbo:application name="provider-of-cart"/>
-		<!-- 2.配置zookeeper地址 -->
-		<dubbo:registry address="zookeeper://127.0.0.1:2181">
-		</dubbo:registry>
-		<!-- 3.配置服务的端口号 -->
-		<dubbo:protocol port="20888" name="dubbo">
-		</dubbo:protocol>
-		<!-- 4.配置实现类的类名 -->
-		<bean class="com.git.dubboprovider.service.impl.CartServiceImpl" id="cartService">
-		</bean>
-	<bean class="com.git.dubboprovider.service.impl.RpcInvokerImpl" id="rpcInvoker">
+	<!-- 2.配置zookeeper地址 -->
+	<dubbo:registry address="zookeeper://127.0.0.1:2181">
+	</dubbo:registry>
+	<!-- 3.配置服务的端口号 -->
+	<dubbo:protocol port="20888" name="dubbo">
+	</dubbo:protocol>
+	<!-- 4.配置实现类的类名 -->
+	<bean class="com.git.dubboprovider.service.impl.CartServiceImpl" id="cartService">
 	</bean>
-		<!-- 5.配置接口名,开放服务 -->
+	<bean class="com.git.dubboprovider.service.impl.RpcInvokerImpl" id="rpcInvoker"/>
+
+	<!-- 5.配置接口名,开放服务 -->
 	<dubbo:service interface="com.git.service.CartService" ref="cartService">
 	</dubbo:service>
 
+	<bean class="com.git.dubboprovider.service.impl.UserServiceImpl" id="userService"/>
+	<dubbo:service interface="com.git.inter.UserService" ref="userService" async="true">
+	</dubbo:service>
+
 	<dubbo:service interface="com.git.inter.RpcInvoker" ref="rpcInvoker"></dubbo:service>
-	</beans>
+
+
+
+
+	<bean id="callbackService" class="com.git.dubboprovider.service.impl.CallbackServiceImpl" />
+	<dubbo:service interface="com.git.inter.CallbackService" ref="callbackService" connections="1" callbacks="1000">
+		<dubbo:method name="addListener">
+			<dubbo:argument index="1" callback="true" />
+			<!--也可以通过指定类型的方式-->
+			<!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+		</dubbo:method>
+	</dubbo:service>
+
+	<bean id="roleSevice" class="com.git.dubboprovider.service.impl.RoleServiceImpl" />
+	<dubbo:service interface="com.git.inter.RoleService" ref="roleSevice" connections="1" callbacks="1000">
+		<dubbo:method name="checkRole">
+			<dubbo:argument index="1" callback="true" />
+			<!--也可以通过指定类型的方式-->
+			<!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+		</dubbo:method>
+	</dubbo:service>
+</beans>

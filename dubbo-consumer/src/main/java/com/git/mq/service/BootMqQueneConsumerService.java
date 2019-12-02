@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BootMqQueneConsumerService {
-    private final  static Logger logger = LoggerFactory.getLogger(BootMqQueneConsumerService2.class);
+    private final  static Logger logger = LoggerFactory.getLogger(BootMqQueneConsumerService.class);
 
 
     @Reference(group = "1")

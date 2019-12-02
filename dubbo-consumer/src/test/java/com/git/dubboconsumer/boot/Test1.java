@@ -73,8 +73,15 @@ class Test1 {
         String aaa = JSON.toJSONString(apiResult);
         System.out.println(aaa);
 
+        System.out.println("===========开始异步调用===========");
+        User userById = userService.getUserById(8);
+
+
         System.out.println(cartService.findCartByUserId(8L));
         System.out.println(cartService2.findCartByUserId(8L));
+        //System.out.println("结束异步调用结果"+userById.toString());
+        System.out.println("=======结束异步调用=============");
+
 
     }
 
