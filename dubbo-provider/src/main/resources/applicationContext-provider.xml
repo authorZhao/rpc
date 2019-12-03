@@ -52,5 +52,16 @@
 			<!--也可以通过指定类型的方式-->
 			<!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
 		</dubbo:method>
+
+		<dubbo:method name="checkRole2">
+			<dubbo:argument index="1" callback="true" />
+			<!--也可以通过指定类型的方式-->
+			<!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+		</dubbo:method>
+		<dubbo:method name="checkRole3">
+			<dubbo:argument index="1" callback="true" />
+			<!--也可以通过指定类型的方式-->
+			<!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
+		</dubbo:method>
 	</dubbo:service>
 </beans>

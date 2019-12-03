@@ -6,8 +6,6 @@ import com.git.inter.RoleService;
 import com.git.model.Role;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.function.UnaryOperator;
-
 public class CallBackTest {
 
     public static void main(String[] args) {
@@ -37,7 +35,16 @@ public class CallBackTest {
         };*/
 
         System.out.println("===================角色调用开始===================");
-        Role role1 = roleService.checkRole(role, r->{
+        //这个调用失败
+      /*  Role role1 = roleService.checkRole(role, r->{
+            System.out.println("===================开始修正===================");
+            System.out.println("===================修正之前===================");
+            System.out.println(r);
+            r.setName("管理");
+            r.setDesc("搞管理的");
+            return r;
+        });*/
+        Role role1 = roleService.checkRole2(role, r->{
             System.out.println("===================开始修正===================");
             System.out.println("===================修正之前===================");
             System.out.println(r);
@@ -45,6 +52,12 @@ public class CallBackTest {
             r.setDesc("搞管理的");
             return r;
         });
+
+        Role role2 = roleService.checkRole3(role1,msg->{
+            System.out.println("==============角色名为："+msg+"=================");
+        });
+
+
         System.out.println("===================角色调用完毕===================");
         System.out.println("===================修正之后===================");
         System.out.println(role1);
