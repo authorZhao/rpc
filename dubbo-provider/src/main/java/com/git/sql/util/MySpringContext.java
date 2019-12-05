@@ -19,7 +19,7 @@ public class MySpringContext implements ApplicationContextAware {
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        MySpringContext.applicationContext = applicationContext; // NOSONAR
+        this.applicationContext = applicationContext; // NOSONAR
     }
 
     /**
@@ -45,7 +45,7 @@ public class MySpringContext implements ApplicationContextAware {
     @SuppressWarnings("unchecked")
     public static <T> T getBean(Class<T> clazz) {
         checkApplicationContext();
-        return (T) applicationContext.getBeansOfType(clazz);
+        return (T) applicationContext.getBean(clazz);
     }
 
     /**

@@ -3,13 +3,15 @@ package com.git.sql.anno;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-import java.util.Set;
+import java.util.Map;
 
+/**
+ * 用于注册
+ */
 public class MapperScan implements ImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        Set<String> metaAnnotationTypes = importingClassMetadata.getMetaAnnotationTypes(MyMapperScan.class.getName());
-        System.out.println(metaAnnotationTypes);
-        return new String[0];
+        Map<String, Object> annotationAttributes = importingClassMetadata.getAnnotationAttributes(MyMapperScan.class.getName());
+        return (String[])annotationAttributes.get("value");
     }
 }
