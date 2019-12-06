@@ -7,19 +7,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class MapperDefinitionRegistry implements ApplicationContextAware , BeanDefinitionRegistryPostProcessor {
+/**
+ * 百度来的，说一下 {@link BeanDefinitionRegistryPostProcessor}的作用，这个类继承了 {@link BeanFactoryPostProcessor}
+ * BeanFactoryPostProcessor主要有一个方法，在bean定义加载的时候做一些事情，这时候是没有bean实例的，spring不推荐这个时候
+ * 进行bean的实例操作，这里采用工厂模式，必须提前注册工厂的bean定义
+ */
+public class MapperDefinitionRegistry implements  BeanDefinitionRegistryPostProcessor {
     private static final Logger logger = LoggerFactory.getLogger(MapperDefinitionRegistry.class);
-    private ApplicationContext applicationContext;
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext=applicationContext;
-    }
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {

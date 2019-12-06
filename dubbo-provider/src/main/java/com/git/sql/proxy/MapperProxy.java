@@ -18,6 +18,10 @@ import java.lang.reflect.Proxy;
 import java.net.Socket;
 import java.sql.ResultSet;
 
+/**
+ * 代理工具类，直接生成代理对象
+ * @author authorZhao
+ */
 public class MapperProxy {
 
     private static final Logger logger = LoggerFactory.getLogger(MapperProxy.class);

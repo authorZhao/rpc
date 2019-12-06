@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 @MyMapperScan({"com.git.sql.config.MapperDefinitionRegistry",
         "com.git.sql.config.MyBatisBeanPostProcessor"
 ,"com.git.sql.util.MySpringContext"})
-@MyMapperScan
 public class SqlConfig {
 
     @Bean

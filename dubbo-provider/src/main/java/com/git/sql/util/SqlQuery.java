@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
 import java.sql.*;
 
+/**
+ * jdbc封装类，目前只设置了查询方法
+ */
 public class SqlQuery {
 
     private static final Logger logger = LoggerFactory.getLogger(SqlQuery.class);
