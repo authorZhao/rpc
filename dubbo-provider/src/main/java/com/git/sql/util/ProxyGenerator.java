@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import sun.security.action.GetBooleanAction;
+//import sun.security.action.GetBooleanAction;
 
 /**
  * ProxyGenerator contains the code to generate a dynamic proxy class
@@ -129,10 +129,10 @@ public class ProxyGenerator {
     private static final String handlerFieldName = "h";
 
     /** debugging flag for saving generated class files */
-    private static final boolean saveGeneratedFiles =
-            java.security.AccessController.doPrivileged(
+    private static final boolean saveGeneratedFiles = true;
+            /*java.security.AccessController.doPrivileged(
                     new GetBooleanAction(
-                            "jdk.proxy.ProxyGenerator.saveGeneratedFiles")).booleanValue();
+                            "jdk.proxy.ProxyGenerator.saveGeneratedFiles")).booleanValue();*/
 
     /**
      * Generate a public proxy class given a name and a list of proxy interfaces.
@@ -163,13 +163,14 @@ public class ProxyGenerator {
                             try {
                                 int i = name.lastIndexOf('.');
                                 Path path;
-                                if (i > 0) {
+                                /*if (i > 0) {
                                     Path dir = Path.of(name.substring(0, i).replace('.', File.separatorChar));
                                     Files.createDirectories(dir);
                                     path = dir.resolve(name.substring(i+1, name.length()) + ".class");
                                 } else {
                                     path = Path.of(name + ".class");
-                                }
+                                }*/
+                                path = Path.of(name + ".class");
                                 Files.write(path, classFile);
                                 return null;
                             } catch (IOException e) {
