@@ -47,11 +47,12 @@ public class MapperScan implements ImportBeanDefinitionRegistrar, ApplicationCon
         //importingClassMetadata.getMetaAnnotationTypes()
         //名字生成器采用spring默认的,不设置也行
         MySqlMapperScanner mapperScanner = new MySqlMapperScanner(registry);
-        mapperScanner.setBeanNameGenerator(AnnotationBeanNameGenerator.INSTANCE);
+        //mapperScanner.setBeanNameGenerator(AnnotationBeanNameGenerator.INSTANCE);
         mapperScanner.setResourceLoader(this.applicationContext);
+        //mapperScanner.isCandidateComponent()
         //this.scan(StringUtils.tokenizeToStringArray((String) this.basePackage, (String) ",; \t\n"));
         logger.info("开始扫描包：{}",basePackage);
-        mapperScanner.scan(this.basePackage);
+        mapperScanner.doScan(this.basePackage);
         logger.info("开始扫描类：{}",classes);
         if(classes!=null&&classes.length>0){
 

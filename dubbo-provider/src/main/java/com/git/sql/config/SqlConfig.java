@@ -3,6 +3,7 @@ package com.git.sql.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.git.sql.anno.MyMapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
@@ -11,6 +12,7 @@ import javax.sql.DataSource;
 @MyMapperScan({"com.git.sql.config.MapperDefinitionRegistry",
         "com.git.sql.config.MyBatisBeanPostProcessor"
 ,"com.git.sql.util.MySpringContext"})
+@ComponentScan
 public class SqlConfig {
 
     @Bean

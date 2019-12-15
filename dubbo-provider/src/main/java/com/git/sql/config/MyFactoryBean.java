@@ -16,8 +16,11 @@ public class MyFactoryBean<T> implements FactoryBean<T> {
 
     private Class<T> interfaceClass;
 
+
     public MyFactoryBean(Class<T> interfaceClass) {
         this.interfaceClass = interfaceClass;
+    }
+    public MyFactoryBean() {
     }
 
     @Override
@@ -39,5 +42,13 @@ public class MyFactoryBean<T> implements FactoryBean<T> {
     @Override
     public boolean isSingleton() {
         return true;
+    }
+
+    /**
+     * 如果采用方法注入属性，必须准备无参构造，不然报错
+     * @param serviceInterface
+     */
+    public void setServiceInterface(Class<T> serviceInterface) {
+        this.interfaceClass = serviceInterface;
     }
 }
