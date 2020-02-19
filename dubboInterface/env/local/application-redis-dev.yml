@@ -1,0 +1,2 @@
+redis:
+  name: 我是本地的redis
