@@ -1,6 +1,7 @@
 package com.git.sql.proxy;
 
 import com.git.sql.anno.MySelect;
+import com.git.sql.anno.MyTestMapper;
 import com.git.sql.mapper.MyMapper;
 import com.git.sql.util.AnnotationUtil;
 import com.git.sql.util.OrmUtil;
@@ -46,6 +47,7 @@ public class MapperProxy {
             if (Object.class.equals(method.getDeclaringClass())) {
                 return method.invoke(this,args);
             }
+            MyTestMapper testMapper = AnnotationUtil.getAnnotation(proxy.getClass().getGenericInterfaces()[0].getClass(), MyTestMapper.class);
             MySelect annotation = AnnotationUtil.getAnnotation(method, MySelect.class);
             if(annotation==null)throw new RuntimeException("找不着select");
             String sql = annotation.value();

@@ -15,5 +15,5 @@ spring:
       enabled: true
     packages:
       trust-all: true   # 如果使用ObjectMessage传输对象，必须要加上这个信任包，否则会报ClassNotFound异常
-  jms:
-    pub-sub-domain: true  # 启动主题消息
+  #jms:
+    #pub-sub-domain: true  # 启动主题消息

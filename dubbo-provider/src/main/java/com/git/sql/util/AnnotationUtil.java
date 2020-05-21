@@ -27,6 +27,10 @@ public class AnnotationUtil {
         return obj.getClass().getAnnotation(clazz);
     }
 
+    public static <T extends Annotation> T getAnnotation(Class obj, Class<T> clazz) {
+        return (T)obj.getAnnotation(clazz);
+    }
+
     /**
      * 获取方法的注解,如果有直接返回，没有找类上面的相同注解
      * @param method 方法

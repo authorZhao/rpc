@@ -6,6 +6,7 @@ import com.git.mq.service.TopicConsumerService1;
 import com.git.mq.service.TopicConsumerService2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -16,19 +17,29 @@ import org.springframework.jms.config.JmsListenerContainerFactory;
 import javax.jms.ConnectionFactory;
 
 @SpringBootApplication
-//@Import(value={BootMqQueneConsumerService.class, BootMqQueneConsumerService2.class, TopicConsumerService1.class, TopicConsumerService2.class})
-//@EnableJms
+@Import(value={BootMqQueneConsumerService.class, BootMqQueneConsumerService2.class, TopicConsumerService1.class, TopicConsumerService2.class})
+@EnableJms
 public class DubboConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DubboConsumerApplication.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(DubboConsumerApplication.class, args);
+
+        System.out.println(run);
+
     }
 
     //需要给topic定义独立的JmsListenerContainer
-    /*@Bean
+    @Bean
     public JmsListenerContainerFactory<?> jmsListenerContainerTopic(ConnectionFactory activeMQConnectionFactory) {
         DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
         bean.setPubSubDomain(true);
+        bean.setConnectionFactory(activeMQConnectionFactory);
+        return bean;
+    }
+   /* @Bean
+    public JmsListenerContainerFactory<?> jmsListenerContainerqueue(ConnectionFactory activeMQConnectionFactory) {
+        DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
+        bean.setPubSubDomain(false);
         bean.setConnectionFactory(activeMQConnectionFactory);
         return bean;
     }*/

@@ -1,10 +1,12 @@
 package com.git.sql;
 
 import com.git.sql.mapper.MyMapper;
+import com.git.sql.service.UserService;
 import com.git.sql.util.ProxyGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Primary;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,6 +16,9 @@ public class BootSqlTest {
 
     @Autowired
     private MyMapper myMapper;
+
+    @Autowired
+    private UserService userService;
 
     @Test
     public void test1() {
@@ -38,5 +43,11 @@ public class BootSqlTest {
             myMapper.getGoodsById(8);
         }
 
+    }
+
+    @Test
+    public void test2() {
+
+        userService.getObject();
     }
 }
